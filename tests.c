@@ -6,12 +6,11 @@
 /*   By: dda-silv <dda-silv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 18:05:33 by dda-silv          #+#    #+#             */
-/*   Updated: 2014/11/05 18:02:37 by dda-silv         ###   ########.fr       */
+/*   Updated: 2014/11/05 18:46:54 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test_macros.h"
-#include <string.h>
 #include "../libft/libft.h"
 #include <stdlib.h>
 
@@ -148,3 +147,21 @@ int	test_ft_memmove()
 	return (0);
 }
 
+int	test_ft_memchr()
+{
+	char	*str = "b0cal";
+	
+	_begin;
+
+	_it("should not crash with null string");
+	ft_memchr(NULL, 1, 2);
+
+	_it("should return the first ocurrence of 'c' in 's'");
+	_assert_ptr(ft_memchr(str, '0', 5), memchr(str, '0', 5));
+	_assert_ptr(ft_memchr(str, 'l', 5), memchr(str, 'l', 5));
+
+	_it("should return null if there's no ocurrence");
+	_assert_ptr(ft_memchr(str, 'k', 5), memchr(str, 'k', 5));
+
+	_done;
+}

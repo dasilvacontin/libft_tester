@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 17:57:32 by dda-silv          #+#    #+#             */
-/*   Updated: 2014/11/05 18:00:57 by dda-silv         ###   ########.fr       */
+/*   Updated: 2014/11/05 18:50:56 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 
 int	all_tests()
 {
-	_verify(test_ft_memcpy);
-	_verify(test_ft_memccpy);
 	_verify(test_ft_memset);
 	_verify(test_ft_bzero);
+	_verify(test_ft_memcpy);
+	_verify(test_ft_memccpy);
+	_verify(test_ft_memchr);
 	return (0);
 }
 
