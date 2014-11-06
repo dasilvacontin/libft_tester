@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 18:05:33 by dda-silv          #+#    #+#             */
-/*   Updated: 2014/11/05 18:46:54 by dda-silv         ###   ########.fr       */
+/*   Updated: 2014/11/06 15:24:23 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,4 +164,21 @@ int	test_ft_memchr()
 	_assert_ptr(ft_memchr(str, 'k', 5), memchr(str, 'k', 5));
 
 	_done;
+}
+
+int	test_ft_memcmp()
+{
+	char	s1[10];
+	char	s2[10];
+	
+	_begin;
+
+	_it("should not crash with null s1, s2, or n");
+	ft_memcmp(NULL, s2, 2);
+	ft_memcmp(s1, NULL, 2);
+	ft_memcmp(NULL, NULL, 2);
+	ft_memcmp(s1, s2, 0);
+
+	_done;
+
 }
