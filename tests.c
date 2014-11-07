@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 18:05:33 by dda-silv          #+#    #+#             */
-/*   Updated: 2014/11/07 17:31:21 by dda-silv         ###   ########.fr       */
+/*   Updated: 2014/11/07 17:59:08 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,19 +127,26 @@ int	test_ft_memmove()
 	return (0);
 }
 
+#define STR_COUNT 7
+
 int	test_ft_atoi()
 {
-	char strs[2][15] = {
+	char strs[STR_COUNT][15] = {
+		"07-4",
+		"00-7",
+		"-007",
+		"007",
 		"124",
-		"-235"
+		"-235",
+		".5"
 	};
 	int	i;
 	_begin;
 
 	_it("should return the same as libc's atoi");
-	i = 2;
+	i = STR_COUNT;
 	while (i--)
-		_assert_int(atoi(strs[i]), ft_atoi(strs[i]));
+		_assert_int(ft_atoi(strs[i]), atoi(strs[i]));
 	_done;
 
 }
