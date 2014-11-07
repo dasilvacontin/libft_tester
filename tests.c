@@ -6,7 +6,7 @@
 /*   By: dda-silv <dda-silv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 18:05:33 by dda-silv          #+#    #+#             */
-/*   Updated: 2014/11/05 18:02:37 by dda-silv         ###   ########.fr       */
+/*   Updated: 2014/11/07 17:31:21 by dda-silv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,6 @@ int	test_ft_memcpy()
 
 	_begin;
 
-	_it("should not crash with null dest");
-	ft_memcpy(NULL, pt 2, 2);
-	
-	_it("should not crash with null src");
-	ft_memcpy(pt 2, NULL, 2);
-	
-	_it("should not crash with both dest and src null");
-	ft_memcpy(NULL, NULL, 2);
-		
 	_it("should do nothing with len = 0");
 	dst1 = malloc(1);
 	memset(dst1, 0, 1);
@@ -48,7 +39,6 @@ int	test_ft_memcpy()
 
 	_it("should return dst");
 	dst1 = malloc(1);
-	_assert_ptr(ft_memcpy(NULL, src, 1), NULL);
 	_assert_ptr(ft_memcpy(dst1, src, 1), dst1);
 
 	_done;
@@ -62,11 +52,6 @@ int test_ft_memccpy()
 	void	*ret;
 
 	_begin;
-
-	_it("should not crash with null dest or src");
-	ft_memccpy(NULL, src, '0', 1);
-	ft_memccpy(dst, NULL, '0', 2);
-	ft_memccpy(NULL, NULL, '0', 3);
 
 	_it("should copy 'n' bytes from src to dst and return NULL");
 	bzero(dst, 10);
@@ -91,9 +76,6 @@ int	test_ft_memset()
 	char dst[5];
 	
 	_begin;
-
-	_it("should not crash with null dest");
-	ft_memset(NULL, 0, 1);
 
 	_it("should not crash with len == 0");
 	ft_memset(&dst, 'h', 1);
@@ -121,9 +103,6 @@ int	test_ft_bzero()
 	
 	_begin;
 
-	_it("should not crash with null dest");
-	ft_bzero(NULL, 5);
-
 	_it("should not crash with len = 0");
 	memset(dst, 1, 5);
 	ft_bzero(dst, 0);
@@ -148,3 +127,19 @@ int	test_ft_memmove()
 	return (0);
 }
 
+int	test_ft_atoi()
+{
+	char strs[2][15] = {
+		"124",
+		"-235"
+	};
+	int	i;
+	_begin;
+
+	_it("should return the same as libc's atoi");
+	i = 2;
+	while (i--)
+		_assert_int(atoi(strs[i]), ft_atoi(strs[i]));
+	_done;
+
+}
