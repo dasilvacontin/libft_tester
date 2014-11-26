@@ -12,18 +12,14 @@
 
 #include <stdio.h>
 #include "test_macros.h"
-#include "tests.h"
+#include "tests_mem.h"
+#include "tests_str.h"
 
 int	all_tests()
 {
-	_verify(test_ft_memset);
-	_verify(test_ft_bzero);
-	_verify(test_ft_memcpy);
-	_verify(test_ft_memccpy);
-	_verify(test_ft_memchr);
-	_verify(test_ft_memcmp);
-	_verify(test_ft_atoi);
-	return (0);
+	tests_mem();
+	tests_str();
+	return (tests_failed > 0);
 }
 
 int	main()

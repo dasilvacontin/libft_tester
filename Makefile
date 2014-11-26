@@ -26,6 +26,6 @@ norm:
 	! norminette $(SRC_DIR)/ft_*.c $(SRC_DIR)/*.h | egrep -B1 -i "Error|Warning"
 
 test:
-	$(CC) $(CFLAGS) runner.c test_macros.c tests.c $(SRC_DIR)/ft_*.c -o test_runner
+	$(CC) $(CFLAGS) runner.c test_macros.c tests_*.c $(SRC_DIR)/ft_*.c -o test_runner
 	./test_runner
 	rm test_runner

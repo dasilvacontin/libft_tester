@@ -25,6 +25,7 @@ void	_color(int c)
 void	_fail_test()
 {
 	_pending_test = 0;
+	_pending_assert = 0;
 	tests_failed++;
 }
 
@@ -83,4 +84,10 @@ void	_it(char *should)
 	_last_it = should;
 	tests_run++;
 	_assert_count = 0;
+}
+
+void	_itx(char *should)
+{
+	_close_pending();
+	printf("\t\x1B[36m%s\x1B[0m\n", should);
 }
